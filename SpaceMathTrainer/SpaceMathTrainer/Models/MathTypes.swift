@@ -65,7 +65,7 @@ enum Difficulty: String, CaseIterable, Hashable {
     var multiplicationRange: ClosedRange<Int> {
         switch self {
         case .easy: return 1...9     // Однозначные числа
-        case .medium: return 1...99  // Однозначные и двузначные (случайные)
+        case .medium: return 1...99  // Один множитель однозначный, второй двузначный
         case .hard: return 10...99   // Двузначные на двузначные
         }
     }

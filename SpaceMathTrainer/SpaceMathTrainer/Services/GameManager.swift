@@ -271,9 +271,16 @@ class MathGameManager: ObservableObject {
                 multiplicand = Int.random(in: min...max)
                 
             case .medium:
-                // Случайные множители: однозначные и двузначные (1-99)
-                multiplier = Int.random(in: min...max)
-                multiplicand = Int.random(in: min...max)
+                // Один множитель однозначный (1-9), второй может быть двузначным (10-99)
+                if Bool.random() {
+                    // Первый однозначный, второй двузначный
+                    multiplier = Int.random(in: 1...9)
+                    multiplicand = Int.random(in: 10...99)
+                } else {
+                    // Первый двузначный, второй однозначный
+                    multiplier = Int.random(in: 10...99)
+                    multiplicand = Int.random(in: 1...9)
+                }
                 
             case .hard:
                 // Двузначные на двузначные (10-99)
